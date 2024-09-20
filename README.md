@@ -1,4 +1,11 @@
 # Azure Data Factory End to end project
+In this project, the goal is to ingest data from various departments with different file formats. The process involves:
+Landing Data: Initial stage where data is ingested.
+Raw or Bronze Layer: The next stage where raw data is stored.
+Data Cleansing: Cleaning the data in the subsequent layer.
+Structured Data: Finally, defining the desired structure and storing the data in Azure SQL DB.
+This approach ensures that data can be stored relationally from start to finish, allowing for the creation of BI and a Data Warehouse if needed.
+
 1- **Requirements**:
 - Create a Subscription account, then create a Resource Group under it, and then create Resources under it. (It should be like a hierarchy)
 - Create Storage as a Resource, including Blob Storage and Data Lake Gen2 Storage.
