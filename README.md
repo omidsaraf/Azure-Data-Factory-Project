@@ -1,5 +1,6 @@
 # Azure Data Factory 
 End to end project
+
 In this project, the goal is to ingest data from various departments with different file formats. The process involves:
 Landing Data: Initial stage where data is ingested.
 Raw or Bronze Layer: The next stage where raw data is stored.
