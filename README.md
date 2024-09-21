@@ -13,3 +13,11 @@ This approach ensures that data can be stored relationally from start to finish,
 - Create Storage as a Resource, including Blob Storage and Data Lake Gen2 Storage.
 - Create Containers for both Storages: Landing for Blob Storage and Raw, Cleansed, Structured for Data Lake Gen2 Storage.
 - Create Azure Data Factory as a Resource to prepare for the next stage.
+
+
+
+**Debug**:
+-The Data Flow in the Sink section must be set to Single.
+-The Linked Server should be in Legacy mode.
+-The Data Preview in the Sink should display data.
+-The Azure SQL DB must return records.
