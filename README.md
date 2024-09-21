@@ -16,8 +16,8 @@ This approach ensures that data can be stored relationally from start to finish,
 
 
 
-**Debug**:
--The Data Flow in the Sink section must be set to Single.
--The Linked Server should be in Legacy mode.
--The Data Preview in the Sink should display data.
--The Azure SQL DB must return records.
+2- **Debug**:
+- The Data Flow in the Sink section must be set to Single.
+- The Linked Server should be in Legacy mode.
+- The Data Preview in the Sink should display data.
+- The Azure SQL DB must return records.
