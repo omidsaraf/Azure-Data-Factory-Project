@@ -1,0 +1,4 @@
+-- Enable TDE to encrypt the database to protect data at rest
+ALTER DATABASE [YourDatabaseName]
+SET ENCRYPTION ON
+GO
