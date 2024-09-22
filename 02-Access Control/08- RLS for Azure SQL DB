@@ -1,0 +1,15 @@
+-- Create a function to filter rows
+CREATE FUNCTION dbo.fn_securitypredicate(@CustomerID int)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+RETURN SELECT 1 AS fn_securitypredicate_result
+WHERE @CustomerID = CAST(SESSION_CONTEXT(N'CustomerID') AS int)
+GO
+
+-- Create a security policy
+CREATE SECURITY POLICY OrdersSecurityPolicy
+ADD FILTER PREDICATE dbo.fn_securitypredicate(CustomerID)
+ON ORDERS.ORDERS
+WITH (STATE = ON)
+GO
