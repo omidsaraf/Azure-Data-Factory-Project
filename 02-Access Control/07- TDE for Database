@@ -1,4 +1,4 @@
 -- Enable TDE to encrypt the database to protect data at rest
-ALTER DATABASE [YourDatabaseName]
+ALTER DATABASE ORDERS
 SET ENCRYPTION ON
 GO
