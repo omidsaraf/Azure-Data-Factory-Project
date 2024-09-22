@@ -1,4 +1,4 @@
-Encrypting a column
+--- Encrypting a column
 CREATE COLUMN MASTER KEY [CMK_Auto1]
 WITH
 (
