@@ -15,6 +15,35 @@ This approach ensures that data can be stored relationally from start to finish,
 - Create Azure Data Factory as a Resource to prepare for the next stage.
 
 
+2- **Access Control**:
+
+By combining these methods, you can leverage the strengths of each approach to create a secure and efficient data pipeline in Azure Data Factory:
+
+1. ***Key Vault***
+   -Keeping Secrets for Storage Account and SQL Server Password
+   -Give List and Read access to ADF
+
+2. ***System-assigned Managed Identity***:
+   - **Automatically created** and managed by Azure.
+   - **Tied to the lifecycle** of the ADF instance.
+   - Ideal for **temporary and service-specific access** needs.
+   - Use for accessing resources like **Azure Key Vault** and **Azure Storage** without managing credentials.
+   - Use for general and temporary access to resources like Azure Key Vault and Azure Storage.
+
+3. ***User-assigned Managed Identity***:
+   - **Created and managed** by the user.
+   - Can be **shared across multiple services**.
+   - Suitable for scenarios requiring **persistent and fine-grained access control**.
+   - Use for scenarios where you need to **share identities** across multiple ADF instances or other Azure services.
+
+4. ***Service Principal***:
+   - **Manually created** in Azure Active Directory.
+   - Requires **management of client secrets** or certificates.
+   - Use for scenarios where **specific permissions** and **roles** need to be assigned.
+   - Ideal for requiring specific permissions,**automated deployments** and **CI/CD pipelines**.
+   - for creating the linked service.
+
+
 
 2- **Debug**:
 - The Data Flow in the Sink section must be set to Single.
