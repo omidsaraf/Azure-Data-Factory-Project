@@ -19,24 +19,24 @@ This approach ensures that data can be stored relationally from start to finish,
 
 By combining these methods, you can leverage the strengths of each approach to create a secure and efficient data pipeline in Azure Data Factory:
 
-***Key Vault***
+ ***A-Key Vault***
    -Keeping Secrets for Storage Account and SQL Server Password
    -Give List and Read access to ADF
 
-***System-assigned Managed Identity***:
+ ***B-System-assigned Managed Identity***:
    - **Automatically created** and managed by Azure.
    - **Tied to the lifecycle** of the ADF instance.
    - Ideal for **temporary and service-specific access** needs.
    - Use for accessing resources like **Azure Key Vault** and **Azure Storage** without managing credentials.
    - Use for general and temporary access to resources like Azure Key Vault and Azure Storage.
 
-***User-assigned Managed Identity***:
+ ***C-User-assigned Managed Identity***:
    - **Created and managed** by the user.
    - Can be **shared across multiple services**.
    - Suitable for scenarios requiring **persistent and fine-grained access control**.
    - Use for scenarios where you need to **share identities** across multiple ADF instances or other Azure services.
 
-***Service Principal***:
+ ***D-Service Principal***:
    - **Manually created** in Azure Active Directory.
    - Requires **management of client secrets** or certificates.
    - Use for scenarios where **specific permissions** and **roles** need to be assigned.
