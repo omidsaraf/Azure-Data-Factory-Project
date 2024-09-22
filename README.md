@@ -51,26 +51,38 @@ By implementing these measures, you can ensure a comprehensive security setup fo
   - ***3-4-Dynamic Data Masking (DDM)***: Masks sensitive data in the result set of a query, providing an additional layer of security by obfuscating data.
   - ***3-5-Auditing and Threat Detection***: Tracks database activities and detects potential threats, helping to identify and respond to suspicious activities.
 
-4- **Azure DevOps (CI/CD)**
+4. **Azure DevOps (CI/CD)**
 
-#### 1. Setup Azure DevOps Service
-- **Create an Azure DevOps Organization**: Sign in to the Azure DevOps portal and create a new organization. This will serve as the central hub for managing your projects and resources.
-- **Create a Project**: Within your organization, create a new project to organize your repositories, pipelines, and other resources.
+#### Manual Development Process in Git for Configured Data Factory:
+1. **Create a Feature Branch**: Start by creating a new feature branch.
+2. **Make Changes and Create a Pull Request**: Implement your changes and create a pull request.
+3. **Approve and Merge**: Once the pull request is approved, merge it into the main branch.
+4. **Publish**: Click the Publish button to generate ARM templates and deploy changes to the live Data Factory.
 
-#### 2. Enable Git Version Control in Azure Data Factory (ADF)
-- **Configure Git Repository**: In Azure Data Factory Studio, navigate to the 'Manage' tab and select 'Git Configuration'. Choose 'Azure DevOps Git' or 'GitHub' as your repository type and follow the prompts to connect your ADF instance to the repository.
-- **Branching Strategy**: Implement a trunk-based branching strategy to manage your development, staging, and production environments effectively.
+#### Automated Mode:
+1. **Use NPM for Automation**: Utilize the NPM package for automating the publishing process in Azure DevOps, eliminating the need for manual publishing.
+2. **Create a Build Pipeline**: Set up a Build Pipeline using YAML to automatically apply changes to the main branch whenever there are updates and a pull request is submitted.
+3. **Deploy with ARM Templates**: Use ARM templates in the Release Pipeline to apply changes to the live Data Factory.
 
-#### 3. Create New Resource Group
-- **Azure Portal**: Sign in to the Azure portal, select 'Resource groups', and click 'Create'. Enter the necessary details such as subscription, resource group name, and region. Review and create the resource group.
-- **Azure CLI**: Use the `az group create` command to create a resource group via the Azure CLI for automation and scripting purposes.
+#### ARM Template Development Task Limitations:
+1. **Trigger Changes**: Does not support trigger changes and disables active triggers.
+2. **Delete Operations**: Does not support delete operations.
 
-#### 4. Create ADF Resource for Test and Production
-- **Development Environment**: Ensure your development environment is set up and configured with Azure Repos Git.
-- **Test and Production Environments**: Create separate ADF instances for test and production environments. Use Azure Resource Manager (ARM) templates to deploy your ADF resources across these environments.
-- **CI/CD Pipeline**: Set up a CI/CD pipeline using Azure Pipelines to automate the deployment of your ADF resources from development to test and production environments.
+#### Solution:
+- **Azure PowerShell Tasks**: Add two Azure PowerShell tasks before and after the ARM Template Development Task in the Release Pipeline. These tasks use pre-written scripts that can be edited by replacing resource names and addresses.
 
+#### Project Phases:
+**Test and Production**:
+   - **Create Resource Groups and ADF Resources**: Set up separate Resource Groups and ADF Resources for each phase.
+   - **Service Principal Access**: Grant Service Principal access to all three Resource Groups in Azure DevOps.
+   - **Clone Development Phase**: In the Release Pipeline, clone the Development phase for testing and make the following changes:
+     - **Azure PowerShell Tasks**: Change the Resource and Resource Group names.
+     - **ARM Template Development Task**: Override values and change the Resource Group name.
+   - **No Additional Configuration Needed**: No need to configure Azure DevOps with the new phases as they are only for developers.
+   - **Use Variables**: Use variables to make the Release Pipeline dynamic, replacing hard-coded values. Define two variables for each phase (Resource Group and Data Factory) with appropriate values. Do not replace the Location File Path in the script with a variable.
+   - **External Services**: External services outside of Azure Data Factory can also be used. Each service has a parameter in the ARM Template, such as the URL for ADL Gen2, which can be overridden with a variable used in both Test and Production phases. Ensure that access is of type Managed Identity and Data Factory v2.
 
+This summary should help you set up and manage your CI/CD pipeline effectively in Azure DevOps. If you have any further questions or need more details, feel free to ask!
 
 2- **Debug**:
 - The Data Flow in the Sink section must be set to Single.
