@@ -82,8 +82,6 @@ By implementing these measures, you can ensure a comprehensive security setup fo
    - **Use Variables**: Use variables to make the Release Pipeline dynamic, replacing hard-coded values. Define two variables for each phase (Resource Group and Data Factory) with appropriate values. Do not replace the Location File Path in the script with a variable.
    - **External Services**: External services outside of Azure Data Factory can also be used. Each service has a parameter in the ARM Template, such as the URL for ADL Gen2, which can be overridden with a variable used in both Test and Production phases. Ensure that access is of type Managed Identity and Data Factory v2.
 
-This summary should help you set up and manage your CI/CD pipeline effectively in Azure DevOps. If you have any further questions or need more details, feel free to ask!
-
 2- **Debug**:
 - The Data Flow in the Sink section must be set to Single.
 - The Linked Server should be in Legacy mode.
