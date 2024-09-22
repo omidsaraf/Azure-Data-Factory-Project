@@ -1,9 +1,9 @@
 -- Enable Auditing
-ALTER DATABASE ORDERS
+ALTER DATABASE sqldb-orders-dev
 SET AUDIT ON
 GO
 
 -- Enable Advanced Threat Protection
-ALTER DATABASE ORDERS
+ALTER DATABASE sqldb-orders-dev
 SET ADVANCED_THREAT_PROTECTION ON
 GO
