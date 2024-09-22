@@ -51,6 +51,27 @@ By implementing these measures, you can ensure a comprehensive security setup fo
    ***3-4-Dynamic Data Masking (DDM)***: Masks sensitive data in the result set of a query, providing an additional layer of security by obfuscating data.
    ***3-5-Auditing and Threat Detection***: Tracks database activities and detects potential threats, helping to identify and respond to suspicious activities.
 
+4- **Azure DevOps (CI/CD)**
+
+#### 1. Setup Azure DevOps Service
+- **Create an Azure DevOps Organization**: Sign in to the Azure DevOps portal and create a new organization. This will serve as the central hub for managing your projects and resources.
+- **Create a Project**: Within your organization, create a new project to organize your repositories, pipelines, and other resources.
+
+#### 2. Enable Git Version Control in Azure Data Factory (ADF)
+- **Configure Git Repository**: In Azure Data Factory Studio, navigate to the 'Manage' tab and select 'Git Configuration'. Choose 'Azure DevOps Git' or 'GitHub' as your repository type and follow the prompts to connect your ADF instance to the repository.
+- **Branching Strategy**: Implement a trunk-based branching strategy to manage your development, staging, and production environments effectively.
+
+#### 3. Create New Resource Group
+- **Azure Portal**: Sign in to the Azure portal, select 'Resource groups', and click 'Create'. Enter the necessary details such as subscription, resource group name, and region. Review and create the resource group.
+- **Azure CLI**: Use the `az group create` command to create a resource group via the Azure CLI for automation and scripting purposes.
+
+#### 4. Create ADF Resource for Test and Production
+- **Development Environment**: Ensure your development environment is set up and configured with Azure Repos Git.
+- **Test and Production Environments**: Create separate ADF instances for test and production environments. Use Azure Resource Manager (ARM) templates to deploy your ADF resources across these environments.
+- **CI/CD Pipeline**: Set up a CI/CD pipeline using Azure Pipelines to automate the deployment of your ADF resources from development to test and production environments.
+
+
+
 2- **Debug**:
 - The Data Flow in the Sink section must be set to Single.
 - The Linked Server should be in Legacy mode.
