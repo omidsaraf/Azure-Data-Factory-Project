@@ -45,11 +45,11 @@ By combining these methods, you can leverage the strengths of each approach to c
 
 3- **Security Measures in Azure SQL Database**
 By implementing these measures, you can ensure a comprehensive security setup for your Azure SQL Database, protecting data at rest, in transit, and in use, while also controlling access and monitoring for threats
-   ***3-1-Transparent Data Encryption (TDE)***: Encrypts the entire database to protect data at rest.
-   ***3-2-Always Encrypted***: Encrypts sensitive columns to protect data in use, ensuring that data remains encrypted during transactions.
-   ***3-3-Row-Level Security (RLS)**: Controls access to rows in a table based on the user's role, ensuring that users can only access the data they are authorized to view.
-   ***3-4-Dynamic Data Masking (DDM)***: Masks sensitive data in the result set of a query, providing an additional layer of security by obfuscating data.
-   ***3-5-Auditing and Threat Detection***: Tracks database activities and detects potential threats, helping to identify and respond to suspicious activities.
+  - ***3-1-Transparent Data Encryption (TDE)***: Encrypts the entire database to protect data at rest.
+  - ***3-2-Always Encrypted***: Encrypts sensitive columns to protect data in use, ensuring that data remains encrypted during transactions.
+  - ***3-3-Row-Level Security (RLS)**: Controls access to rows in a table based on the user's role, ensuring that users can only access the data they are authorized to view.
+  - ***3-4-Dynamic Data Masking (DDM)***: Masks sensitive data in the result set of a query, providing an additional layer of security by obfuscating data.
+  - ***3-5-Auditing and Threat Detection***: Tracks database activities and detects potential threats, helping to identify and respond to suspicious activities.
 
 4- **Azure DevOps (CI/CD)**
 
