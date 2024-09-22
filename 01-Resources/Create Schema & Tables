@@ -1,0 +1,36 @@
+# Create Schema
+CREATE SCHEMA ORDERS
+GO
+
+# Create Tables
+CREATE TABLE ORDERS.ORDERS 
+(
+ORDER_ITEM_ID integer,
+ORDER_ID integer, 
+ORDER_DATE date,
+CUSTOMER_ID integer,
+ORDER_STATUS varchar(100),
+STORE_ID integer,
+PRODUCT_ID integer,
+UNIT_PRICE decimal,
+QUANTITY integer,
+SUBTOTAL decimal,
+UPDATED_TIMESTAMP datetime2
+)
+GO
+CREATE TABLE ORDERS.PRODUCTS 
+(
+PRODUCT_ID integer,
+PRODUCT_NAME varchar(100),
+UNIT_PRICE decimal, 
+UPDATED_TIMESTAMP datetime2
+)
+GO
+CREATE TABLE ORDERS.STORES 
+(
+STORE_ID integer,
+STORE_NAME varchar(100),
+LATITUDE decimal, 
+LONGITUDE decimal,
+UPDATED_TIMESTAMP datetime2
+)
