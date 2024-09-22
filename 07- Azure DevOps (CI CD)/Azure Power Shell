@@ -1,0 +1,13 @@
+## Pre-Deployment
+-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" 
+-ResourceGroupName <your-resource-group-name> 
+-DataFactoryName <your-data-factory-name> 
+-predeployment $true 
+-deleteDeployment $false
+
+## Post-Deployment
+-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" 
+-ResourceGroupName <your-resource-group-name> 
+-DataFactoryName <your-data-factory-name> 
+-predeployment $false 
+-deleteDeployment $true
