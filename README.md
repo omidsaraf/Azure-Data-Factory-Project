@@ -1,4 +1,4 @@
-## Azure Data Factory: End-to-End Project
+## Azure Data Factory Project:
 
 ### Project Overview
 The goal of this project is to ingest data from various departments with different file formats. The process involves:
