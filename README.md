@@ -1,7 +1,3 @@
-Here's the updated version of your Azure Data Factory end-to-end project description, including the section for Monitoring and Error Handling:
-
----
-
 ## Azure Data Factory: End-to-End Project
 
 ### Project Overview
@@ -92,12 +88,6 @@ This approach ensures that data can be stored relationally from start to finish,
 - **Use Variables**: Use variables to make the Release Pipeline dynamic, replacing hard-coded values. Define two variables for each phase (Resource Group and Data Factory) with appropriate values. Do not replace the Location File Path in the script with a variable.
 - **External Services**: External services outside of Azure Data Factory can also be used. Each service has a parameter in the ARM Template, such as the URL for ADL Gen2, which can be overridden with a variable used in both Test and Production phases. Ensure that access is of type Managed Identity and Data Factory v2.
 
-**Note**:
-- The Data Flow in the Sink section must be set to Single.
-- The Linked Server should be in Legacy mode.
-- The Data Preview in the Sink should display data.
-- The Azure SQL DB must return records.
-
 ### Monitoring and Error Handling
 
 1. **Monitoring**:
@@ -106,7 +96,7 @@ This approach ensures that data can be stored relationally from start to finish,
     - **Alerts**: Configure alerts in Azure Monitor to notify you of pipeline failures or other critical events. Alerts can be sent via email, SMS, or other notification channels.
 
 2. **Error Handling**:
-    - **Conditional Paths**: Use conditional paths in your pipelines to handle errors. Define paths for **Upon Success**, **Upon Failure**, **Upon Completion**, and **Upon Skip** to manage different outcomes¹.
+    - **Conditional Paths**: Use conditional paths in your pipelines to handle errors. Define paths for **Upon Success**, **Upon Failure**, **Upon Completion**, and **Upon Skip** to manage different outcomes.
     - **Try-Catch Blocks**: Implement Try-Catch blocks to catch errors and execute alternative logic or notifications¹.
     - **Notifications**: Set up notifications to alert you when a pipeline or activity fails. Use webhooks, Logic Apps, or Azure Functions to send notifications.
 
@@ -116,6 +106,12 @@ This approach ensures that data can be stored relationally from start to finish,
     - **Manual Intervention**: For persistent issues, manually intervene to fix the problem and re-run the pipeline.
 
 4. **Long-Term Run History Storage**:
-    - **Diagnostic Settings**: Set up diagnostic settings to export pipeline run history to Azure Data Lake Storage (ADLS) or Blob Storage for long-term retention¹¹¹³.
+    - **Diagnostic Settings**: Set up diagnostic settings to export pipeline run history to Azure Data Lake Storage (ADLS) or Blob Storage for long-term retention.
     - **Automated Export**: Use Azure Logic Apps or Azure Functions to automate the export of run history to a storage account. Schedule regular exports to ensure data is retained beyond the default 45-day retention period.
+  
+**Note**:
+- The Data Flow in the Sink section must be set to Single.
+- The Linked Server should be in Legacy mode.
+- The Data Preview in the Sink should display data.
+- The Azure SQL DB must return records.
 
