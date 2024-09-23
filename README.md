@@ -92,12 +92,12 @@ This approach ensures that data can be stored relationally from start to finish,
 
 1. **Monitoring**:
     - **Azure Data Factory Studio**: Monitor all pipeline runs natively in Azure Data Factory Studio. Select **Monitor** from the left menu to view pipeline runs, activity runs, and trigger runs.
-    - **Azure Monitor**: Use Azure Monitor to collect and analyze metrics and logs. Set up diagnostic settings to route logs to a Log Analytics workspace, Event Hub, or Azure Storage for long-term storage¹².
+    - **Azure Monitor**: Use Azure Monitor to collect and analyze metrics and logs. Set up diagnostic settings to route logs to a Log Analytics workspace, Event Hub, or Azure Storage for long-term storage.
     - **Alerts**: Configure alerts in Azure Monitor to notify you of pipeline failures or other critical events. Alerts can be sent via email, SMS, or other notification channels.
 
 2. **Error Handling**:
     - **Conditional Paths**: Use conditional paths in your pipelines to handle errors. Define paths for **Upon Success**, **Upon Failure**, **Upon Completion**, and **Upon Skip** to manage different outcomes.
-    - **Try-Catch Blocks**: Implement Try-Catch blocks to catch errors and execute alternative logic or notifications¹.
+    - **Try-Catch Blocks**: Implement Try-Catch blocks to catch errors and execute alternative logic or notifications.
     - **Notifications**: Set up notifications to alert you when a pipeline or activity fails. Use webhooks, Logic Apps, or Azure Functions to send notifications.
 
 3. **Troubleshooting**:
