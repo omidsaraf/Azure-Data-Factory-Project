@@ -77,30 +77,6 @@ This approach ensures that data can be stored relationally from start to finish,
 **Solution**:
 - **Azure PowerShell Tasks**: Add two Azure PowerShell tasks before and after the ARM Template Development Task in the Release Pipeline. These tasks use pre-written scripts that can be edited by replacing resource names and addresses.
 
-Here's the updated Azure DevOps (CI/CD) section, incorporating the need to override parameters dynamically for different phases:
-
----
-
-### Azure DevOps (CI/CD)
-
-#### Manual Development Process in Git for Configured Data Factory:
-1. **Create a Feature Branch**: Start by creating a new feature branch.
-2. **Make Changes and Create a Pull Request**: Implement your changes and create a pull request.
-3. **Approve and Merge**: Once the pull request is approved, merge it into the main branch.
-4. **Publish**: Click the Publish button to generate ARM templates and deploy changes to the live Data Factory.
-
-#### Automated Mode:
-1. **Use NPM for Automation**: Utilize the NPM package for automating the publishing process in Azure DevOps, eliminating the need for manual publishing.
-2. **Create a Build Pipeline**: Set up a Build Pipeline using YAML to automatically apply changes to the main branch whenever there are updates and a pull request is submitted.
-3. **Deploy with ARM Templates**: Use ARM templates in the Release Pipeline to apply changes to the live Data Factory.
-
-#### ARM Template Development Task Limitations:
-1. **Trigger Changes**: Does not support trigger changes and disables active triggers.
-2. **Delete Operations**: Does not support delete operations.
-
-**Solution**:
-- **Azure PowerShell Tasks**: Add two Azure PowerShell tasks before and after the ARM Template Development Task in the Release Pipeline. These tasks use pre-written scripts that can be edited by replacing resource names and addresses.
-
 #### Additiona Project Phases:
 **Test and Production**:
 - **Create Resource Groups and ADF Resources**: Set up separate Resource Groups and ADF Resources for each phase.
