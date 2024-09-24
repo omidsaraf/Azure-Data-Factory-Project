@@ -1,4 +1,4 @@
-![Linked Services](https://github.com/user-attachments/assets/a035ed1c-2833-44c0-bd72-b36af910520a)## Azure Data Factory Project - Customers' Orders:
+## Azure Data Factory Project - Customers' Orders:
 End to End Project
 
 ![Project Blue Print](https://github.com/user-attachments/assets/68d9cc99-a73b-4bf0-a27f-8fc36a46fcdf)
@@ -33,7 +33,7 @@ This approach ensures that data can be stored relationally from start to finish,
     - Create Azure SQL DB.
     - Meet Security Measures for Blob Storage Access Control and Azure SQL DB.
     - Create Linked Services for Storage Accounts, Azure SQL DB.
-
+![Linked Services](https://github.com/user-attachments/assets/a035ed1c-2833-44c0-bd72-b36af910520a)
 3. **Azure SQL DB**:
     - Deploy Azure SQL DB which includes creating a SQL Server that must have access to Azure Services and resources via Firewall.
     - Create Schema and Tables’ structures.
