@@ -65,6 +65,7 @@ This approach ensures that data can be stored relationally from start to finish,
     - Create Datasets for Landing, Raw, Cleansed, Structured Zones based on file formats.
     - Use Dynamic File Path for Raw and Cleansed to ensure data will be stored by partitions based on daily ingested files.
     - Create two dataflows for Raw to Cleansed and Cleansed to Structured zones.
+
 ![Raw to Cleansed](https://github.com/user-attachments/assets/9369b2c3-fa0f-4a2f-a064-e17d9f2a1362)
 ![Cleansed to Structured](https://github.com/user-attachments/assets/3c0a5601-5428-43b1-b738-4d43fe1dccdd)
 
