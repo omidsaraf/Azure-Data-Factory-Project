@@ -77,16 +77,42 @@ This approach ensures that data can be stored relationally from start to finish,
 **Solution**:
 - **Azure PowerShell Tasks**: Add two Azure PowerShell tasks before and after the ARM Template Development Task in the Release Pipeline. These tasks use pre-written scripts that can be edited by replacing resource names and addresses.
 
-#### Project Phases:
+Here's the updated Azure DevOps (CI/CD) section, incorporating the need to override parameters dynamically for different phases:
+
+---
+
+### Azure DevOps (CI/CD)
+
+#### Manual Development Process in Git for Configured Data Factory:
+1. **Create a Feature Branch**: Start by creating a new feature branch.
+2. **Make Changes and Create a Pull Request**: Implement your changes and create a pull request.
+3. **Approve and Merge**: Once the pull request is approved, merge it into the main branch.
+4. **Publish**: Click the Publish button to generate ARM templates and deploy changes to the live Data Factory.
+
+#### Automated Mode:
+1. **Use NPM for Automation**: Utilize the NPM package for automating the publishing process in Azure DevOps, eliminating the need for manual publishing.
+2. **Create a Build Pipeline**: Set up a Build Pipeline using YAML to automatically apply changes to the main branch whenever there are updates and a pull request is submitted.
+3. **Deploy with ARM Templates**: Use ARM templates in the Release Pipeline to apply changes to the live Data Factory.
+
+#### ARM Template Development Task Limitations:
+1. **Trigger Changes**: Does not support trigger changes and disables active triggers.
+2. **Delete Operations**: Does not support delete operations.
+
+**Solution**:
+- **Azure PowerShell Tasks**: Add two Azure PowerShell tasks before and after the ARM Template Development Task in the Release Pipeline. These tasks use pre-written scripts that can be edited by replacing resource names and addresses.
+
+#### Additiona Project Phases:
 **Test and Production**:
 - **Create Resource Groups and ADF Resources**: Set up separate Resource Groups and ADF Resources for each phase.
 - **Service Principal Access**: Grant Service Principal access to all three Resource Groups in Azure DevOps.
 - **Clone Development Phase**: In the Release Pipeline, clone the Development phase for testing and make the following changes:
     - **Azure PowerShell Tasks**: Change the Resource and Resource Group names.
     - **ARM Template Development Task**: Override values and change the Resource Group name.
-- **No Additional Configuration Needed**: No need to configure Azure DevOps with the new phases as they are only for developers.
-- **Use Variables**: Use variables to make the Release Pipeline dynamic, replacing hard-coded values. Define two variables for each phase (Resource Group and Data Factory) with appropriate values. Do not replace the Location File Path in the script with a variable.
-- **External Services**: External services outside of Azure Data Factory can also be used. Each service has a parameter in the ARM Template, such as the URL for ADL Gen2, which can be overridden with a variable used in both Test and Production phases. Ensure that access is of type Managed Identity and Data Factory v2.
+**Dynamic Parameter Overriding**:
+- **Global Parameters**: Utilize global parameters in Azure Data Factory to manage values that need to be consistent across multiple pipelines and environments. These parameters can be overridden during the CI/CD process to adapt to different environments (Development, Test, Production) dynamically.
+- **Parameter Files**: Create parameter files for each environment (Development, Test, Production) that specify the values for storage accounts, databases, and other resources. These files can be referenced in the ARM templates to ensure the correct values are used during deployment.
+- **Pipeline Expressions**: Use pipeline expressions to dynamically set values based on the environment. This can include setting file paths, connection strings, and other configuration settings that vary between environments.
+- **Use Variables**: Use variables to make the Release Pipeline dynamic, replacing hard-coded values. Define two variables for each phase (Resource Group and Data Factory) with appropriate values.
 
 ### Monitoring and Error Handling
 
