@@ -56,7 +56,7 @@ This approach ensures that data can be stored relationally from start to finish,
     - Create two dataflows for Raw to Cleansed and Cleansed to Structured zones.
     - Create three Pipelines: one for Copy activities, and two others for dataflows.
     - Create a Master Pipeline with dependencies and schedule it to run by Scheduled Trigger.
-
+      
 ### Azure DevOps (CI/CD)
 
 #### Manual Development Process in Git for Configured Data Factory:
