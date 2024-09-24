@@ -104,9 +104,6 @@ This approach ensures that data can be stored relationally from start to finish,
 **Solution**:
 - **Azure PowerShell Tasks**: Add two Azure PowerShell tasks before and after the ARM Template Development Task in the Release Pipeline. These tasks use pre-written scripts that can be edited by replacing resource names and addresses.
 
-![Override Parameters](https://github.com/user-attachments/assets/29e81507-243b-49d8-9e21-774ad539bb67)
-
-
 #### Additiona Project Phases:
 **Test and Production**:
 - **Create Resource Groups and ADF Resources**: Set up separate Resource Groups and ADF Resources for each phase.
@@ -121,21 +118,16 @@ This approach ensures that data can be stored relationally from start to finish,
 - **Pipeline Expressions**: Use pipeline expressions to dynamically set values based on the environment. This can include setting file paths, connection strings, and other configuration settings that vary between environments.
 - **Use Variables**: Use variables to make the Release Pipeline dynamic, replacing hard-coded values. Define two variables for each phase (Resource Group and Data Factory) with appropriate values.
 
-![ARM Template Parameters](https://github.com/user-attachments/assets/78eb2247-11da-4d13-a089-b3f5e417e9cb)
 
+![Override Parameters](https://github.com/user-attachments/assets/29e81507-243b-49d8-9e21-774ad539bb67)
+
+![ARM Template Parameters](https://github.com/user-attachments/assets/78eb2247-11da-4d13-a089-b3f5e417e9cb)
 
 ### Outcome:
 ![Result- Raw Zone](https://github.com/user-attachments/assets/bad20fe0-4897-4c08-9cb4-ec76385f9c8c)
 ![Result- Cleansed Zone](https://github.com/user-attachments/assets/4f025013-7e23-4d0a-838d-0bfa8543dc1c)
 ![Devops Pipeline Successful](https://github.com/user-attachments/assets/05c15d8e-7315-4347-a3b9-83354c61019b)
 ![Result- Structured (SQL DB)](https://github.com/user-attachments/assets/ca7946cb-b20e-4c0a-8e37-fcf92d78712c)
-
-
-
-
-
-
-
 
 ### Monitoring and Error Handling
 
