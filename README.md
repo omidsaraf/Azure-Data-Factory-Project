@@ -89,15 +89,13 @@ This approach ensures that data can be stored relationally from start to finish,
 3. **Approve and Merge**: Once the pull request is approved, merge it into the main branch.
 4. **Publish**: Click the Publish button to generate ARM templates and deploy changes to the live Data Factory.
 
-![Setup CI](https://github.com/user-attachments/assets/abff22e2-620b-49c3-86de-ad55d6149f55)
-
-
 #### Automated Mode:
 1. **Use NPM for Automation**: Utilize the NPM package for automating the publishing process in Azure DevOps, eliminating the need for manual publishing.
 2. **Create a Build Pipeline**: Set up a Build Pipeline using YAML to automatically apply changes to the main branch whenever there are updates and a pull request is submitted.
 3. **Deploy with ARM Templates**: Use ARM templates in the Release Pipeline to apply changes to the live Data Factory.
 
-![DevOps Pipeline](https://github.com/user-attachments/assets/e7266e52-411d-46d7-900d-bc80a3214038)
+![Setup CI](https://github.com/user-attachments/assets/abff22e2-620b-49c3-86de-ad55d6149f55)
+
 
 #### ARM Template Development Task Limitations:
 1. **Trigger Changes**: Does not support trigger changes and disables active triggers.
@@ -116,6 +114,7 @@ This approach ensures that data can be stored relationally from start to finish,
 - **Clone Development Phase**: In the Release Pipeline, clone the Development phase for testing and make the following changes:
     - **Azure PowerShell Tasks**: Change the Resource and Resource Group names.
     - **ARM Template Development Task**: Override values and change the Resource Group name.
+![DevOps Pipeline](https://github.com/user-attachments/assets/e7266e52-411d-46d7-900d-bc80a3214038)
 **Dynamic Parameter Overriding**:
 - **Global Parameters**: Utilize global parameters in Azure Data Factory to manage values that need to be consistent across multiple pipelines and environments. These parameters can be overridden during the CI/CD process to adapt to different environments (Development, Test, Production) dynamically.
 - **Parameter Files**: Create parameter files for each environment (Development, Test, Production) that specify the values for storage accounts, databases, and other resources. These files can be referenced in the ARM templates to ensure the correct values are used during deployment.
