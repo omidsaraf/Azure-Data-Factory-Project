@@ -20,7 +20,7 @@ This approach ensures that data can be stored relationally from start to finish,
 ### Requirements
 
 1. **Azure Setup**:
-![Linked Services](https://github.com/user-attachments/assets/d44f80d2-6da1-4e13-83d4-ee0c4fc1c6eb)
+
 ![01-Deploy Resources](https://github.com/user-attachments/assets/422d5f76-4e70-4459-a40f-2eefc0a10598)
 
 
